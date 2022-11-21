@@ -112,9 +112,9 @@ def analyze_review_sentiments(dealer_review):
     NLU_URL = 'https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/d1d85065-a680-4342-a17c-d431badb4d5a'
     authenticator = IAMAuthenticator(API_KEY)
     natural_language_understanding = NaturalLanguageUnderstandingV1(
-        version='2022-04-07', authenticator=authenticator, language="en")
+        version='2022-04-07', authenticator=authenticator)
     natural_language_understanding.set_service_url(NLU_URL)
-    response = natural_language_understanding.analyze(text=dealer_review, features=Features(
+    response = natural_language_understanding.analyze(text=dealer_review, language=en, features=Features(
         sentiment=SentimentOptions(targets=[dealer_review]))).get_result()
     label = json.dumps(response, indent=2)
     label = response['sentiment']['document']['label']
