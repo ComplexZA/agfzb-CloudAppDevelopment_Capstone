@@ -27,7 +27,12 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ["localhost","rianlottercarapp.eu-gb.mybluemix.net"]
+ALLOWED_HOSTS = ["localhost", "localhost:8000",
+                 "rianlottercarapp.eu-gb.mybluemix.net", 
+                 "rianlotter-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/"]
+
+CSRF_TRUSTED_ORIGINS = ['https://rianlotter-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/',
+                        "https://rianlottercarapp.eu-gb.mybluemix.net/",'https://*.127.0.0.1']
 
 
 # Application definition
